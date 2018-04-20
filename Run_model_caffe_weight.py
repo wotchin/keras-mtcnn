@@ -105,9 +105,10 @@ threshold = [0.6,0.6,0.7]
 
 while (True):
     # ret, img = cap.read()
-    img = cv2.imread('000001.png')
+    img = cv2.imread('test.jpeg')
 
     rectangles = detectFace(img, threshold)
+    print(rectangles)
     draw = img.copy()
 
     for rectangle in rectangles:
@@ -126,11 +127,7 @@ while (True):
 
             for i in range(5, 15, 2):
                 cv2.circle(draw, (int(rectangle[i + 0]), int(rectangle[i + 1])), 2, (0, 255, 0))
-    cv2.imshow("test", draw)
-    c = cv2.waitKey(1) & 0xFF
-    if c == 27 or c == ord('q'):
-        break
 
-    # cv2.imwrite('test.jpg', draw)
-
+    cv2.imwrite('0001.jpg', draw)
+    break
 
